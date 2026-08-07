@@ -27,19 +27,70 @@ VEILINK 是一款以 3D 打印结构件和飞特 STS3215 总线舵机为基础�
 
 ## 软件环境
 
-快速入门 Notebook 按 LeRobot 0.5.x API 编写，当前校准记录使用 LeRobot 0.5.1。建议为项目创建独立的 Python 环境，避免不同版本之间产生兼容问题。
+快速入门 Notebook 按 LeRobot 0.5.x API 编写，当前校准记录使用 LeRobot 0.5.1。推荐使用 Anaconda 创建独立的 Python 环境，便于安装依赖、切换环境及避免不同项目之间的版本冲突。
 
-以下示例适用于 Windows PowerShell，并以 Python 3.10 为例：
+### 1. 安装 Anaconda
+
+前往 [Anaconda 官网](https://www.anaconda.com/download)下载并安装适合当前操作系统的版本。Windows 用户安装完成后，可从开始菜单打开 **Anaconda Prompt** 执行下面的命令。
+
+先确认 Conda 已正确安装：
 
 ```powershell
-py -3.10 -m venv .venv
-.\.venv\Scripts\Activate.ps1
+conda --version
+```
+
+如果普通 PowerShell 提示找不到 `conda`，可改用 Anaconda Prompt，或在安装完成后重新打开终端。
+
+### 2. 创建并激活项目环境
+
+创建名为 `lerobot`、使用 Python 3.10 的独立环境：
+
+```powershell
+conda create -n lerobot python=3.10 -y
+conda activate lerobot
+```
+
+激活成功后，终端提示符前通常会显示 `(lerobot)`。可以运行以下命令确认当前 Python 来自新环境：
+
+```powershell
+python --version
+where.exe python
+```
+
+### 3. 安装项目依赖
+
+在 `lerobot` 环境中执行：
+
+```powershell
 python -m pip install --upgrade pip
 python -m pip install "lerobot==0.5.1" pyserial ipykernel ipywidgets jupyter
+```
+
+随后将该环境注册为 Jupyter 内核：
+
+```powershell
 python -m ipykernel install --user --name lerobot --display-name "Python (lerobot)"
 ```
 
-安装完成后，使用 VS Code 或 Jupyter 打开 Notebook，并选择 `Python (lerobot)` 内核。串口号、夹爪选项及其他需要修改的参数，均在对应 Notebook 中标有说明。
+### 4. 打开 Notebook
+
+使用 VS Code 或 Jupyter 打开仓库中的 Notebook，并在右上角选择 `Python (lerobot)` 内核。串口号、夹爪选项及其他需要修改的参数，均在对应 Notebook 中标有说明。
+
+以后再次使用时，只需打开 Anaconda Prompt 并激活环境：
+
+```powershell
+conda activate lerobot
+```
+
+常用的环境管理命令：
+
+```powershell
+conda env list                  # 查看已有环境
+conda deactivate                # 退出当前环境
+conda remove -n lerobot --all   # 删除 lerobot 环境
+```
+
+更多用法可参考 [Conda 环境管理文档](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)。
 
 ## 推荐使用顺序
 

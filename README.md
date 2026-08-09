@@ -22,7 +22,7 @@ VEILINK 是一款以 3D 打印结构件和飞特 STS3215 总线舵机为基础�
 - [STEP 三维模型](<3D Models/VEILINK Arm.STEP>)
 - [装配说明书](<3D Models/装配说明书 Assembly Instruction.pdf>)
 - [DH 参数表](<运动学参数 Kinematic Parameters/DH参数表 DH Parameters.xlsx>)
-- [运动学模型](<运动学参数 Kinematic Parameters/运动学模型 Kinematic Model.pdf>)
+- [运动学模型](<运动学参数 Kinematic Parameters/运动学模型 Kinematic Model.png>)
 - [机械臂零位示意图](<运动学参数 Kinematic Parameters/零位 Zero Pose.PNG>)
 
 ## 软件环境
@@ -118,7 +118,7 @@ conda remove -n lerobot --all   # 删除 lerobot 环境
 
 ### 6. 使用运动学资料
 
-需要进行正逆运动学、轨迹规划或上层控制开发时，可参考 [DH 参数表](<运动学参数 Kinematic Parameters/DH参数表 DH Parameters.xlsx>)和[运动学模型](<运动学参数 Kinematic Parameters/运动学模型 Kinematic Model.pdf>)。
+需要进行正逆运动学、轨迹规划或上层控制开发时，可参考 [DH 参数表](<运动学参数 Kinematic Parameters/DH参数表 DH Parameters.xlsx>)和[运动学模型](<运动学参数 Kinematic Parameters/运动学模型 Kinematic Model.png>)。
 
 ## 安全提示
 

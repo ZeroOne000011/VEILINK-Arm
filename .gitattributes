@@ -5,3 +5,6 @@
 *.xlsx binary
 *.PNG binary
 *.png binary
+*.md text eol=lf
+*.ipynb text eol=lf
+*.json text eol=lf

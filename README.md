@@ -13,8 +13,8 @@ VEILINK 是一款以 3D 打印结构件和飞特 STS3215 总线舵机为基础�
 | 目录 | 内容 |
 | --- | --- |
 | [3D Models](<3D Models/>) | 3MF 打印文件、STEP 三维模型和装配说明书 |
-| [快速入门指南](<快速入门指南/>) | 舵机编号、整机校准和单舵机控制程序 |
-| [运动学参数 Kinematic Parameters](<运动学参数 Kinematic Parameters/>) | DH 参数表、运动学模型和零位示意图 |
+| [Code](<Code/>) | 舵机编号、整机校准和单舵机控制 Notebook |
+| [运动学参数 Kinematic Parameters](<运动学参数 Kinematic Parameters/>) | 运动学参数说明、DH 参数表、运动学模型和零位示意图 |
 
 主要资料：
 
@@ -24,6 +24,7 @@ VEILINK 是一款以 3D 打印结构件和飞特 STS3215 总线舵机为基础�
 - [DH 参数表](<运动学参数 Kinematic Parameters/DH参数表 DH Parameters.png>)
 - [运动学模型](<运动学参数 Kinematic Parameters/运动学模型 Kinematic Model.png>)
 - [机械臂零位示意图](<运动学参数 Kinematic Parameters/零位 Zero Pose.PNG>)
+- [运动学参数说明](<运动学参数 Kinematic Parameters/运动学参数说明.md>)
 
 ## 软件环境
 
@@ -100,7 +101,7 @@ conda remove -n lerobot --all   # 删除 lerobot 环境
 
 ### 2. 设置舵机编号
 
-在机械装配前，打开 [1-舵机编号标记.ipynb](<快速入门指南/1-舵机编号标记.ipynb>)，按照其中的说明逐台设置舵机 ID、进行通信验证并粘贴实体标签。
+在机械装配前，打开 [1-舵机编号标记.ipynb](<Code/1-舵机编号标记.ipynb>)，按照其中的说明逐台设置舵机 ID、进行通信验证并粘贴实体标签。
 
 ### 3. 完成机械装配
 
@@ -108,17 +109,17 @@ conda remove -n lerobot --all   # 删除 lerobot 环境
 
 ### 4. 校准零位和安全限位
 
-机械装配完成后，参考[零位示意图](<运动学参数 Kinematic Parameters/零位 Zero Pose.PNG>)，运行 [2-舵机校准.ipynb](<快速入门指南/2-舵机校准.ipynb>)，记录各关节零位并采集安全限位。
+机械装配完成后，参考[零位示意图](<运动学参数 Kinematic Parameters/零位 Zero Pose.PNG>)，运行 [2-舵机校准.ipynb](<Code/2-舵机校准.ipynb>)，记录各关节零位并采集安全限位。
 
-校准结果会保存到 [机械臂校准参数.json](<快速入门指南/机械臂校准参数.json>)。仓库中的参数来自一台实际机械臂，仅用于展示数据结构和提供参考；不同设备的安装误差和安全范围并不相同，请务必为自己的机械臂重新校准。
+校准结果会保存到 [机械臂校准参数.json](<Code/机械臂校准参数.json>)。仓库中的参数来自一台实际机械臂，仅用于展示数据结构和提供参考；不同设备的安装误差和安全范围并不相同，请务必为自己的机械臂重新校准。
 
 ### 5. 进行单关节调试
 
-校准完成后，运行 [3-单舵机控制.ipynb](<快速入门指南/3-单舵机控制.ipynb>)，按照 Notebook 中的安全步骤逐个检查关节的位置反馈、运动方向、零位和限位，再逐步开展后续控制实验。
+校准完成后，运行 [3-单舵机控制.ipynb](<Code/3-单舵机控制.ipynb>)，按照 Notebook 中的安全步骤逐个检查关节的位置反馈、运动方向、零位和限位，再逐步开展后续控制实验。
 
 ### 6. 使用运动学资料
 
-需要进行正逆运动学、轨迹规划或上层控制开发时，可参考 [DH 参数表](<运动学参数 Kinematic Parameters/DH参数表 DH Parameters.png>)和[运动学模型](<运动学参数 Kinematic Parameters/运动学模型 Kinematic Model.png>)。
+需要进行正逆运动学、轨迹规划或上层控制开发时，建议先阅读[运动学参数说明](<运动学参数 Kinematic Parameters/运动学参数说明.md>)，再结合 [DH 参数表](<运动学参数 Kinematic Parameters/DH参数表 DH Parameters.png>)、[运动学模型](<运动学参数 Kinematic Parameters/运动学模型 Kinematic Model.png>)和零位示意图进行验证。
 
 ## 安全提示
 

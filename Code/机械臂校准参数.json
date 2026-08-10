@@ -350,15 +350,13 @@
       "range_max": 2100
     }
   },
-  "servo_eeprom_limits_written": false,
   "notes": [
     "零位、Homing Offset和实测软限位已记录。",
     "2026-08-09-dh-v2 标准DH参数来自运动学模型与DH参数表图片；J1 alpha=-90°，J2 theta=q2+90°、alpha=180°，d1/d4/d6为负。",
     "J1-J6的direction=1且direction_verified=true：红色+z_(i-1)箭头按右手定则的正转就是舵机正方向。",
     "夹爪采用相同舵机，direction=1且direction_verified=true：图片中的红色箭头按右手定则表示夹爪舵机正方向。",
     "J1/J4/J6为单圈旋转关节；J6发布范围为[0,360)，内部优化可使用等价的[-180,180)。",
-    "servo_voltage_variant仍需读取舵机铭牌确认，不能由运动学图片推断。",
-    "servo_eeprom_limits_written=false时，所有控制程序仍必须实施软件限位。"
+    "servo_voltage_variant仍需读取舵机铭牌确认，不能由运动学图片推断。"
   ],
   "kinematics_status": "final_confirmed",
   "kinematics_revision": "2026-08-09-dh-v2",

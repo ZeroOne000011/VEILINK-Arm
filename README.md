@@ -13,7 +13,7 @@ VEILINK 是一款以 3D 打印结构件和飞特 STS3215 总线舵机为基础�
 | 目录 | 内容 |
 | --- | --- |
 | [3D Models](<3D Models/>) | 3MF 打印文件、STEP 三维模型和装配说明书 |
-| [Code](<Code/>) | 舵机编号、整机校准和单舵机控制 Notebook |
+| [Code](<Code/>) | 舵机编号、整机校准、单舵机控制和 Xbox 手柄控制 Notebook |
 | [运动学参数 Kinematic Parameters](<运动学参数 Kinematic Parameters/>) | 运动学参数说明、DH 参数表、运动学模型和零位示意图 |
 
 主要资料：
@@ -64,7 +64,7 @@ where.exe python
 
 ```powershell
 python -m pip install --upgrade pip
-python -m pip install "lerobot==0.5.1" pyserial ipykernel ipywidgets jupyter
+python -m pip install "lerobot==0.5.1" pyserial ipykernel ipywidgets jupyter numpy pygame
 ```
 
 随后将该环境注册为 Jupyter 内核：
@@ -117,7 +117,13 @@ conda remove -n lerobot --all   # 删除 lerobot 环境
 
 校准完成后，运行 [3-单舵机控制.ipynb](<Code/3-单舵机控制.ipynb>)，按照 Notebook 中的安全步骤逐个检查关节的位置反馈、运动方向、零位和限位，再逐步开展后续控制实验。
 
-### 6. 使用运动学资料
+### 6. 使用 Xbox 手柄控制
+
+完成校准和逐关节验证后，可以运行 [手柄操控机械臂.ipynb](<Code/手柄操控机械臂.ipynb>)，使用 Xbox 手柄控制腕部中心移动、腕部关节、末端旋转和夹爪开合。该 Notebook 使用 Pygame 的 SDL 标准手柄映射，并从同一份校准 JSON 读取 DH 参数、零位和软件限位。
+
+首次使用时，请先完成 Notebook 中的手柄输入预览和离线回归测试，再以最低速度档进行短脉冲实机验证。控制过程中，短按 A 可在控制与保持状态之间切换，长按 A 退出循环并保持位置，B 键用于锁存紧急卸力；软件卸力不能替代实体断电或急停措施。
+
+### 7. 使用运动学资料
 
 需要进行正逆运动学、轨迹规划或上层控制开发时，建议先阅读[运动学参数说明](<运动学参数 Kinematic Parameters/运动学参数说明.md>)，再结合 [DH 参数表](<运动学参数 Kinematic Parameters/DH参数表 DH Parameters.png>)、[运动学模型](<运动学参数 Kinematic Parameters/运动学模型 Kinematic Model.png>)和零位示意图进行验证。
 
@@ -139,6 +145,8 @@ conda remove -n lerobot --all   # 删除 lerobot 环境
 校准零位和安全限位
         ↓
 逐关节进行低速、小幅度测试
+        ↓
+验证 Xbox 手柄输入与安全停止逻辑
         ↓
 开展运动学与上层控制开发
 ```

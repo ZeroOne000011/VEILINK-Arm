@@ -8,6 +8,11 @@ VEILINK 是一款以 3D 打印结构件和飞特 STS3215 总线舵机为基础�
 
 项目展示及打印配置可参考：[MakerWorld：VEILINK 六轴机械臂](https://makerworld.com.cn/zh/models/2817152-veilink-liu-zhou-ji-jie-bi#profileId-3285755)。
 
+<p align="center">
+  <img src="images/VEILINK-arm-photo.jpg" alt="VEILINK 六轴机械臂实拍图" width="48%" />
+  <img src="images/VEILINK-arm-render.png" alt="VEILINK 六轴机械臂 CAD 渲染图" width="48%" />
+</p>
+
 ## 仓库内容
 
 | 目录 | 内容 |
